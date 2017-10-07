@@ -1,3 +1,4 @@
+import { DataService } from './data.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  questions: Array<any>;
+
+  constructor(private _dataService: DataService) {
+    this._dataService.getQuestions()
+      .subscribe(res => this.questions = res);
+  }
 }
