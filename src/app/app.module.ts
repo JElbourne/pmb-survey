@@ -1,10 +1,12 @@
-import { DataService } from './data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatRadioModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    MatRadioModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

@@ -9,9 +9,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
   questions: Array<any>;
+  questionIndex: number;
+  questionObject: any;
 
   constructor(private _dataService: DataService) {
     this._dataService.getQuestions()
-      .subscribe(res => this.questions = res);
+      .subscribe((res) => {
+        this.questions = res;
+        this.activateQuestion(0);
+      });
+  }
+
+  activateQuestion(num) {
+    this.questionIndex = num;
+    this.questionObject = this.questions[this.questionIndex];
   }
 }

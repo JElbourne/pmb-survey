@@ -2,6 +2,13 @@
   {{title}}
 </h1>
 
-<ul>
-  <li *ngFor="let question of questions">{{ question.text }}</li>
-</ul>
+<h3>{{ questionObject.text }}</h3>
+
+<mat-radio-group ng-model="data.group1">
+  <mat-radio-button
+    *ngFor="let answer of questionObject.answers"
+    value="{{answer.value}}"
+    >
+    {{answer.text}}
+  </mat-radio-button>
+</mat-radio-group>
