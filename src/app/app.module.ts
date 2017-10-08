@@ -12,11 +12,20 @@ import {MatRadioModule,
   MatButtonToggleModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { DataService } from './data.service';
+import { HeaderComponent } from './header/header.component';
+import { SurveyService } from './survey/survey.service';
+import { SurveyComponent } from './survey/survey.component';
+import { QuestionsComponent } from './survey/questions/questions.component';
+import { ResultComponent } from './survey/result/result.component';
+import { ResultService } from './survey/result/result.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    SurveyComponent,
+    QuestionsComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +40,7 @@ import { DataService } from './data.service';
     MatIconModule,
     MatButtonToggleModule
   ],
-  providers: [DataService],
+  providers: [SurveyService, ResultService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

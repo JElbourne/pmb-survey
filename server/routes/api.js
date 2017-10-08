@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const {MongoClient, ObjectID} = require('mongodb');
 
 const Question = require('../models/question');
+const Result = require('../models/result');
 
 const router = express.Router();
 
@@ -26,25 +27,21 @@ let response = {
 // Get questions
 router.get('/questions', (req, res) => {
     Question.find().then((questions) => {
-        console.log(questions);
         response.data = questions;
         res.json(response)
     }, (e) => {
         res.status(400).send(e);
     });
+});
 
-    // connection((db) => {
-    //     db.collection('questions')
-    //         .find()
-    //         .toArray()
-    //         .then((questions) => {
-    //             response.data = questions;
-    //             res.json(response);
-    //         })
-    //         .catch((err) => {
-    //             sendError(err, res);
-    //         });
-    // });
+// Get questions
+router.get('/results', (req, res) => {
+    Result.find().then((results) => {
+        response.data = results;
+        res.json(response)
+    }, (e) => {
+        res.status(400).send(e);
+    });
 });
 
 module.exports = router;
