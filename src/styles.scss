@@ -1,2 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import './theme';
+
+body {
+    background:white;
+}
+
+header {
+    height: 140px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.logo {
+    margin: 0 auto;
+    height: 100px;
+}
+
+.content {
+    padding: 0 10em 10em 10em;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.answer-group {
+    box-shadow: 0 0 0 0 !important;
+    display: flex !important;
+    justify-content: space-around;
+    margin: 20px 0 !important;
+}
+
+.answer-wrapper {
+    width: 150px;
+    cursor: pointer;
+}
+
+.mat-icon.answer-icon {
+    width: 100% !important;
+    font-size: 70px;
+    text-align: center;
+    color: lightgrey;
+}
+.mat-icon.answer-icon.active {
+    color: #565656;
+}
+
+.answer-text {
+    background-color: transparent !important;
+    color: #565656;
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 600;
+    text-align: center;
+}
+.answer-text.active {
+    color: #565656;
+}
+
+.question-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.question-text {
+    font-size: 36px;
+    line-height: 44px;
+    color: #565656;
+    margin: 60px 0 !important;
+    text-align: center !important;
+}
+
+.question-prompt {
+    text-align: center;
+    color: #999;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.next-button {
+    font-size: 22px;
+    line-height: 60px !important;
+}
