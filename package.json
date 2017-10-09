@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "postinstall": "ng build --aot -prod",
+    "postinstall": "ng build -prod --aot=false",
     "start": "node server.js",
     "test": "ng test",
     "deploy": "git push heroku master"
