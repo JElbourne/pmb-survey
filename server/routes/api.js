@@ -1,14 +1,10 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const {MongoClient, ObjectID} = require('mongodb');
 
+const {mongoose} = require('../db/mongoose');
 const Question = require('../models/question');
 const Result = require('../models/result');
 
 const router = express.Router();
-
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/PMPsurvey', { useMongoClient: true})
 
 // Error handling
 const sendError = (err, res) => {

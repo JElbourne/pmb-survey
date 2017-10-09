@@ -1,0 +1,11 @@
+<div class='content'>
+  <mat-toolbar color="primary">
+      <span>{{title}}</span>
+  </mat-toolbar>
+
+  <app-survey-result 
+    *ngIf="surveyResults"
+    [surveyResults]="surveyResults"></app-survey-result>
+  <app-survey-questions
+    *ngIf="!surveyResults"></app-survey-questions>
+</div>

@@ -1,0 +1,45 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title><h2>Question: {{ questionIndex + 1 }}</h2></mat-card-title>
+    <mat-card-subtitle>out of {{ questionsLength }} questions</mat-card-subtitle>
+  </mat-card-header>
+    <mat-card-content>
+      <hr>
+      <div class="question-text">{{ questionText }}</div>
+      <div class="question-prompt">For your organization, how often is this statement true (select one)?</div>
+      <div class="answer-group">
+        <div
+          *ngFor="let answer of answers; let idx = index"
+          class = "answer-wrapper"
+          (click) = "onAnswerChange(answer[1])"
+          >
+          <mat-icon
+            class="answer-icon"
+            [ngClass]="{'active': selectedAnswerValue === answer[1] }"
+            >
+            {{(selectedAnswerValue === answer[1]) ? 'radio_button_checked' : 'radio_button_unchecked'}}
+          </mat-icon>
+          <div
+            class="answer-text"
+            [ngClass]="{'active': selectedAnswerValue === answer[1] }"
+            >
+            {{ answer[0] }}
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <span  class="question-actions">
+        <button
+          mat-raised-button
+          class = "next-button"
+          color = 'primary'
+          [disabled]="!selectedAnswerValue"
+          (click)="onNextClicked()"
+          >
+          Next Question
+          <mat-icon >chevron_right</mat-icon>
+        </button>
+      </span>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,17 @@
+.result-number-wrapper {
+    width: 100% !important;
+    text-align: center;
+    margin: 50px;
+}
+
+.result-number {
+    
+    font-size: 72px;
+    line-height: 80px;
+}
+
+.result-body {
+    text-align: center;
+    font-size: 22px;
+    line-height: 30px;
+}
