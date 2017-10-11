@@ -4,7 +4,7 @@ import { SurveyService } from '../survey.service';
 @Component({
   selector: 'app-survey-questions',
   templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.css']
+  styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent {
 

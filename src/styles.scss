@@ -1,13 +1,21 @@
 @import './theme';
 
 body {
-    background:white;
+    background:#fafafa;
 }
 
 header {
-    height: 140px;
+    height: 120px;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 15px;
+    background: white;    
+}
+
+footer {
+    color: #888888;
+    text-align: center;
+    width: 100%;
+    padding: 3em 0;
 }
 
 .logo {
@@ -15,8 +23,28 @@ header {
     height: 100px;
 }
 
-.content {
-    padding: 0 10em 10em 10em;
+.copyright {
+    margin: 10px 0 10px;
+}
+
+ul.social {
+    list-style: none outside;
+}
+
+.social li {
+    display: inline-block;
+    margin-right: 6px;
+    width: 35px;
+}
+
+.social li a {
+    color: #41a7ac;
+    font-size: 25px;
+    line-height: 25px;
+}
+
+.container {
+    padding: 0 10em 0 10em;
 }
 
 .toolbar-spacer {
@@ -48,8 +76,8 @@ header {
 .answer-text {
     background-color: transparent !important;
     color: #565656;
-    font-size: 22px;
-    line-height: 30px;
+    font-size: 18px;
+    line-height: 24px;
     font-weight: 600;
     text-align: center;
 }
@@ -63,21 +91,21 @@ header {
 }
 
 .question-text {
-    font-size: 36px;
-    line-height: 44px;
+    font-size: 22px;
+    line-height: 30px;
     color: #565656;
-    margin: 60px 0 !important;
+    margin: 40px 0 !important;
     text-align: center !important;
 }
 
 .question-prompt {
     text-align: center;
     color: #999;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 16px;
 }
 
 .next-button {
     font-size: 22px;
     line-height: 60px !important;
+    font-weight: 600;    
 }
