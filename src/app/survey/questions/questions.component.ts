@@ -48,6 +48,7 @@ export class QuestionsComponent {
       this.activateQuestion(this.questionIndex);
     } else {
       this._surveyService.questionsFinished.emit(this.calculatedAnswerValue());
+      this._surveyService.stage.emit('results');
     }
   }
 

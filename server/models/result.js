@@ -7,8 +7,8 @@ const resultSchema = new Schema({
         type: String,
         required: true
     },
-    position: {
-        type: Number,
+    title: {
+        type: String,
         required: true
     }
 });

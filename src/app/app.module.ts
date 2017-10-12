@@ -18,6 +18,7 @@ import { SurveyComponent } from './survey/survey.component';
 import { QuestionsComponent } from './survey/questions/questions.component';
 import { ResultComponent } from './survey/result/result.component';
 import { ResultService } from './survey/result/result.service';
+import { IntroComponent } from './survey/intro/intro.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ResultService } from './survey/result/result.service';
     HeaderComponent,
     SurveyComponent,
     QuestionsComponent,
-    ResultComponent
+    ResultComponent,
+    IntroComponent
   ],
   imports: [
     BrowserModule,

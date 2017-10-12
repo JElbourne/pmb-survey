@@ -9,15 +9,20 @@ import { Component, OnInit } from '@angular/core';
 export class SurveyComponent implements OnInit {
 
   surveyResults: number[] = null;
+  stage = 'start';
 
   constructor(private _surveyService: SurveyService) {}
 
   ngOnInit() {
+    this._surveyService.stage
+      .subscribe(
+        (stage: string) => {
+          this.stage = stage;
+        });
     this._surveyService.questionsFinished
       .subscribe(
         (result: number[]) => {
           this.surveyResults = result;
-        }
-      );
+        });
   }
 }

@@ -1,13 +1,15 @@
+@import '../../../theme';
+
 .result-number-wrapper {
     width: 100% !important;
     text-align: center;
     margin: 50px;
 }
 
-.result-number {
-    
-    font-size: 72px;
-    line-height: 80px;
+.result-title {
+    color: mat-color($primary);
+    font-size: 80px;
+    line-height: 96px;
 }
 
 .result-body {

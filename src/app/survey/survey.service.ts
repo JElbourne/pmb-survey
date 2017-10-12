@@ -8,6 +8,7 @@ export class SurveyService {
 
   questionsFinished = new EventEmitter<number[]>();
   result: any;
+  stage = new EventEmitter<string>();
 
   constructor (private _http: Http) { }
 

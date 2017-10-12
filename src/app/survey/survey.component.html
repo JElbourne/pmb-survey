@@ -1,7 +1,9 @@
 <div class='container'>
+  <app-survey-intro 
+    *ngIf="stage === 'start'"></app-survey-intro>
   <app-survey-result 
-    *ngIf="surveyResults"
+    *ngIf="stage === 'results'"
     [surveyResults]="surveyResults"></app-survey-result>
   <app-survey-questions
-    *ngIf="!surveyResults"></app-survey-questions>
+    *ngIf="stage === 'questions'"></app-survey-questions>
 </div>
