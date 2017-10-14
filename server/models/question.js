@@ -18,6 +18,10 @@ const questionSchema = new Schema({
         type: String,
         required: true
     },
+    order: {
+        type: Number,
+        required: true
+    },
     answers: [answerSchema]
 });
 

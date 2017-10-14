@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '../survey.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { SurveyService } from '../survey.service';
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.scss']
 })
-export class QuestionsComponent {
+export class QuestionsComponent implements OnInit {
 
   questions: Array<any>;
   answers: Array<any>;
@@ -17,42 +17,34 @@ export class QuestionsComponent {
   selectedAnswerValue: number = null;
   answerResultData: Array<number> = [];
 
-  constructor(private _surveyService: SurveyService) {
+  constructor(private _surveyService: SurveyService) {}
+
+  ngOnInit(): void {
     this._surveyService.getQuestions()
       .subscribe((res) => {
         this.questions = res;
         this.questionsLength = this.questions.length;
-        this.activateQuestion(0);
+        // Set to the first question (db stores an order number starting at 1)
+        this.questionIndex = 1;
+        this.activateQuestion();
       });
     // This next line was to text the results page easier
     // without going through all questions to get there.
-    //this._surveyService.questionsFinished.emit([56, 3.4]);
+    // this._surveyService.questionsFinished.emit([56, 3.4]);
   }
 
-  activateQuestion(num) {
-    this.questionIndex = num;
-    this.questionText = this.questions[this.questionIndex].text;
-    this.answers = this.questions[this.questionIndex].answers
-      .map((answer) => [answer.text, answer.value]);
-  }
-
-  onAnswerChange(answerValue) {
-    this.selectedAnswerValue = answerValue;
-  }
-
-  onNextClicked() {
-    if (this.questionIndex < (this.questions.length - 1)) {
-      this.answerResultData.push(this.selectedAnswerValue);
-      this.selectedAnswerValue = null;
-      this.questionIndex++;
-      this.activateQuestion(this.questionIndex);
-    } else {
-      this._surveyService.questionsFinished.emit(this.calculatedAnswerValue());
-      this._surveyService.stage.emit('results');
+  private activateQuestion(): void {
+    for (let i = 0; i < this.questions.length; i++) {
+      if (this.questions[i].order === (this.questionIndex)) {
+        this.questionText = this.questions[i].text;
+        this.answers = this.questions[i].answers
+          .map((answer) => [answer.text, answer.value]);
+        break;
+      }
     }
   }
 
-  calculatedAnswerValue() {
+  private calculatedAnswerValue(): Array<number> {
     if (this.answerResultData.length < 1) {
       return [0, 0];
     }
@@ -63,4 +55,19 @@ export class QuestionsComponent {
     return [sum, (sum / this.answerResultData.length)];
   }
 
+  onAnswerChange(answerValue): void {
+    this.selectedAnswerValue = answerValue;
+  }
+
+  onNextClicked(): void {
+    if (this.questionIndex < (this.questions.length)) {
+      this.answerResultData.push(this.selectedAnswerValue);
+      this.selectedAnswerValue = null;
+      this.questionIndex++;
+      this.activateQuestion();
+    } else {
+      this._surveyService.questionsFinished.emit(this.calculatedAnswerValue());
+      this._surveyService.stage.emit('results');
+    }
+  }
 }

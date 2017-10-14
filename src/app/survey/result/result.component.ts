@@ -7,7 +7,7 @@ import { SurveyService } from './../survey.service';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
-export class ResultComponent {
+export class ResultComponent implements OnInit {
 
   results: Array<any>;
   resultDescription: string;
@@ -17,7 +17,9 @@ export class ResultComponent {
 
   constructor(
     private _resultService: ResultService,
-    private _surveyService: SurveyService) {
+    private _surveyService: SurveyService) {}
+
+  ngOnInit(): void {
     this._resultService.getResults()
     .subscribe((res) => {
       this.results = res;
@@ -25,7 +27,7 @@ export class ResultComponent {
     });
   }
 
-  determineResult() {
+  private determineResult() {
     const resultScore = this.surveyResults[0];
     if (resultScore < 20) {
       this.resultDescription = this.results[0].description;
